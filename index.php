@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/normalize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -105,11 +106,25 @@
         var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
         if(email!="" && password!="")
         {
-             alert("All good");
+            $.ajax(
+				{
+					type:'POST',
+					url:"ajax/login.php";
+					data:{mail:email,pass:password,token:token},
+					success:function(data)
+					{
+						alert(data);
+					}
+				});
         }
         else{
             alert("Please input all the fields");
         }
 
     }
+</script>
+<script type="text/javascript">
+$('form').submit(function(e){
+    e.preventDefault();
+});
 </script>
