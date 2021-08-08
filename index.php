@@ -104,12 +104,12 @@
         var username=document.getElementById('email').value;
         var password=document.getElementById('password').value;
         var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
-        if(email!="" && password!="")
+        if(email!=" " && password!=" ")
         {
             $.ajax(
 				{
 					type:'POST',
-					url:"ajax/login.php";
+					url:"ajax/login.php",
 					data:{mail:email,pass:password,token:token},
 					success:function(data)
 					{
