@@ -110,7 +110,7 @@
 				{
 					type:'POST',
 					url:"ajax/login.php",
-					data:{mail:email,pass:password,token:token},
+					data:{name:email,pass:password,token:token},
 					success:function(data)
 					{
 						alert(data);
