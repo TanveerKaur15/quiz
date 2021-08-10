@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/normalize.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -46,11 +45,11 @@
                 <form class="form">
                         <div>
                             <label for="email">EMAIL : </label>
-                            <input type="email" id="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control">
                         </div>
                         <div>
                             <label for="password">PASSWORD : </label>
-                            <input type="password" id="password" class="form-control">
+                            <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="submit-button">
                             <input type="submit" id="submit" name="submit" onclick="sendlogin()">
@@ -86,6 +85,7 @@
     </section>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
    var btn=document.getElementById('signup');
     btn.addEventListener("click",function(){
@@ -101,7 +101,7 @@
     });
     function sendlogin()
     {
-        var username=document.getElementById('email').value;
+        var email=document.getElementById('email').value;
         var password=document.getElementById('password').value;
         var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
         if(email!=" " && password!=" ")
