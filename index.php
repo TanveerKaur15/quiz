@@ -42,7 +42,7 @@
                             </div>
                         </div>
                 <div class="loginpart" id="loginform" style="float:left; width:100%;">
-                <form class="form">
+                <form class="form" autoplay="off">
                         <div>
                             <label for="email">EMAIL : </label>
                             <input type="text" id="email" name="email" class="form-control">
@@ -57,7 +57,7 @@
                 </form>
             </div>
             <div class="signuppart hidden" id="signupform"  style="float:left; width:100%;">
-                <form class="form">
+                <form class="form" autoplay="off">
                         <div>
                             <label for="email">EMAIL : </label>
                             <input type="email" id="email1" class="form-control">
@@ -135,9 +135,10 @@
         var password=document.getElementById('password1').value;
         var confirmpassword=document.getElementById('confirmpassword').value;
         var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
-        if(email!=" " && age!=" " && phone!=" " && password!=" " && confirmpassword1!=" ")
+        if(email!=" " && age!=" " && phone!=" " && password!=" " && confirmpassword!=" ")
         {
             if(password==confirmpassword)
+            {
             $.ajax(
 				{
 					type:'POST',
@@ -148,6 +149,10 @@
 						alert(data);
 					}
 				});
+            }
+            else{
+                alert("Password incorrect. Kindly enter again")
+            }
         }
         else{
             alert("Please input all the fields");
