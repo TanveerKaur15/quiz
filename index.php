@@ -42,7 +42,7 @@
                             </div>
                         </div>
                 <div class="loginpart" id="loginform" style="float:left; width:100%;">
-                <form class="form" autoplay="off">
+                <form class="form" autofill="off" autocomplete="off">
                         <div>
                             <label for="email">EMAIL : </label>
                             <input type="text" id="email" name="email" class="form-control">
@@ -57,7 +57,7 @@
                 </form>
             </div>
             <div class="signuppart hidden" id="signupform"  style="float:left; width:100%;">
-                <form class="form" autoplay="off">
+                <form class="form" autofill="off" autocomplete="off">
                         <div>
                             <label for="email">EMAIL : </label>
                             <input type="email" id="email1" class="form-control">
