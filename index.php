@@ -60,22 +60,26 @@
                 <form class="form">
                         <div>
                             <label for="email">EMAIL : </label>
-                            <input type="email" class="form-control">
+                            <input type="email" id="email1" class="form-control">
                         </div>
                         <div id="age">
                             <label for="age">AGE : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="age1" class="form-control">
                         </div>
                         <div id="phone">
                             <label for="number">PHONE NUMBER : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="phone1" class="form-control">
                         </div>
                         <div>
                             <label for="password">PASSWORD : </label>
-                            <input type="password" class="form-control">
+                            <input type="password" id="password1" class="form-control">
+                        </div>
+                        <div>
+                            <label for="password">CONFIRM PASSWORD : </label>
+                            <input type="password" id="confirmpassword" class="form-control">
                         </div>
                         <div class="submit-button">
-                            <input type="submit" name="submit">
+                            <input type="submit"  id="submit1" name="submit1" onclick="sendsignup()">
                         </div>
                 </form>
             </div>
@@ -111,6 +115,34 @@
 					type:'POST',
 					url:"ajax/login.php",
 					data:{name:email,pass:password,token:token},
+					success:function(data)
+					{
+						alert(data);
+					}
+				});
+        }
+        else{
+            alert("Please input all the fields");
+        }
+
+    }
+
+    function sendsignup()
+    {
+        var email=document.getElementById('email1').value;
+        var age=document.getElementById('age1').value;
+        var phone=document.getElementById('phone1').value;
+        var password=document.getElementById('password1').value;
+        var confirmpassword=document.getElementById('confirmpassword').value;
+        var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
+        if(email!=" " && age!=" " && phone!=" " && password!=" " && confirmpassword1!=" ")
+        {
+            if(password==confirmpassword)
+            $.ajax(
+				{
+					type:'POST',
+					url:"ajax/signup.php",
+					data:{name:email , age:age , phone:phone , pass:password , cpass:confirmpassword , token:token},
 					success:function(data)
 					{
 						alert(data);
