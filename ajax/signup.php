@@ -9,7 +9,6 @@ if(isset($_POST['token']) && password_verify("tokenlogin",$_POST['token']))
     echo $email;
     echo $age;
     echo $phone;
-    echo $password;
     echo $confirmpassword;
 }
 ?>
