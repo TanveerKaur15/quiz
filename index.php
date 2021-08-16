@@ -134,7 +134,7 @@
         var phone=document.getElementById('phone1').value;
         var password=document.getElementById('password1').value;
         var confirmpassword=document.getElementById('confirmpassword').value;
-        var token="<?php echo password_hash("tokenlogin", PASSWORD_DEFAULT)?>";
+        var token="<?php echo password_hash("tokensignup", PASSWORD_DEFAULT)?>";
         if(email!=" " && age!=" " && phone!=" " && password!=" " && confirmpassword!=" ")
         {
             if(password==confirmpassword)

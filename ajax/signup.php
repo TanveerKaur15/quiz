@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['token']) && password_verify("tokenlogin",$_POST['token']))
+if(isset($_POST['token']) && password_verify("tokensignup",$_POST['token']))
 {
     $email=$_POST['name'];
     $age=$_POST['age'];
