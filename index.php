@@ -121,7 +121,10 @@
 					data:{name:email,pass:password,token:token},
 					success:function(data)
 					{
-						alert(data);
+						if(data==0)
+                        {
+                            window.location="dashboard.php";
+                        }
 					}
 				});
         }
