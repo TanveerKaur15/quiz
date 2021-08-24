@@ -123,7 +123,11 @@
 					{
 						if(data==0)
                         {
+                            alert("Login successful");
                             window.location="dashboard.php";
+                        }
+                        else{
+                            alert(data);
                         }
 					}
 				});

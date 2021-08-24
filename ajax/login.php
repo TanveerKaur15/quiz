@@ -1,11 +1,12 @@
 <?php
 include('../connection.php');
+session_start();
 if(isset($_POST['token']) && password_verify("tokenlogin",$_POST['token']))
 {
     $email=$_POST['name'];
     $password=$_POST['pass'];
 
-    $query=$db->prepare("SELECT * FROM `quiz` WHERE name=?");
+    $query=$db->prepare("SELECT * FROM quiz WHERE email=?");
     $data=array($email);
     $execute=$query->execute($data);
     if($query->rowcount() > 0)
@@ -15,7 +16,8 @@ if(isset($_POST['token']) && password_verify("tokenlogin",$_POST['token']))
             if(password_verify($password,$datarow['password']))
             {
                 echo 0;
-                break;
+                $_SESSION['id']=$datarow['id'];
+                $_SESSION['email']=$datarow['email'];
             }
         }
     }
